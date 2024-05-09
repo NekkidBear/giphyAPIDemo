@@ -1,3 +1,4 @@
+
 function getPokemonData(pokemonDuJour) {
   axios({
     method: "GET",
@@ -16,9 +17,10 @@ function getPokemonData(pokemonDuJour) {
 }
 
 function getGiphyData(pokemonDuJour) {
+  const GIPHY_API_KEY = process.env.GIPHY_API_KEY;
   axios({
     method: "GET",
-    url: `https://api.giphy.com/v1/gifs/search?q="${pokemonDuJour}"+pokemon&limit=3&rating=g&api_key=xczXfI0xg1pUWwh4W7vfmOOtQDb5N2KA`,
+    url: `https://api.giphy.com/v1/gifs/search?q="${pokemonDuJour}"+pokemon&limit=3&rating=g&api_key=${GIPHY_API_KEY}`,
   }).then((res) => {
     const giphy = res.data;
     console.log(giphy);
